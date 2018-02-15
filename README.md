@@ -10,7 +10,7 @@ The common time library is a set of utility and helper classes to handle time an
 
 ## Requirements
 
-To build this module, you will need a java 8 JDK and Maven 3.
+To build this module, you will need a java 9 JDK and Maven 3.
 
 ## Coding Style and other information
 
@@ -24,7 +24,7 @@ Wiki:
 https://yildiz.atlassian.net/wiki
 
 Quality report:
-https://sonarcloud.io/dashboard?id=be.yildiz-games%3Acommon-time
+https://sonarcloud.io/dashboard/index/be.yildiz-games:common-time
 
 ## License
 
