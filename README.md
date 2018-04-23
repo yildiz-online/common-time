@@ -10,7 +10,7 @@ The common time library is a set of utility and helper classes to handle time an
 
 ## Requirements
 
-To build this module, you will need a java 9 JDK and Maven 3.
+To build this module, you will need the latest java JDK and Maven.
 
 ## Coding Style and other information
 
