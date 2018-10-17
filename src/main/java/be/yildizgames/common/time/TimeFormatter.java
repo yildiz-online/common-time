@@ -30,5 +30,10 @@ package be.yildizgames.common.time;
  */
 public interface TimeFormatter {
 
+    /**
+     * Format the provided timestamp into a readable format.
+     * @param time Timestamp to format.
+     * @return The formatted time.
+     */
     String format(long time);
 }
