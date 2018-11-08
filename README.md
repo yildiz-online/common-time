@@ -49,10 +49,9 @@ In your maven project, add the dependency
 <dependency>
     <groupId>be.yildiz-games</groupId>
     <artifactId>common-time</artifactId>
-    <version>LATEST</version>
+    <version>${project.version}</version>
 </dependency>
 ```
-Replace LATEST with the correct version.
 
 ## Contact
 Owner of this repository: Grégory Van den Borre
