@@ -33,26 +33,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * @author Grégory Van Den Borre
  */
-class TimerTest {
+public class TimerTest {
 
     private Timer timer = new Timer();
 
     @Test
-    void getActionTimeInSecTest() throws InterruptedException {
+    public void getActionTimeInSecTest() throws InterruptedException {
         assertEquals(0, this.timer.getActionTimeInSec());
         Thread.sleep(1000);
         assertEquals(1, this.timer.getActionTimeInSec());
     }
 
     @Test
-    void getActionTimeTest() throws InterruptedException {
+    public void getActionTimeTest() throws InterruptedException {
         assertEquals(0, this.timer.getActionTime());
         Thread.sleep(1000);
         Assertions.assertTrue(inRange(this.timer.getActionTime(), 950, 1050));
     }
 
     @Test
-    void resetTimerTest() {
+    public void resetTimerTest() {
         this.timer.reset();
         assertTrue(this.timer.getActionTime() == 0);
     }
