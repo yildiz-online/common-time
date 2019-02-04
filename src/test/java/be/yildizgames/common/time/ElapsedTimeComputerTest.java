@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  *
  * @author Grégory Van den Borre
  */
-class ElapsedTimeComputerTest {
+public class ElapsedTimeComputerTest {
 
     /**
      * Time to use.
@@ -48,7 +48,7 @@ class ElapsedTimeComputerTest {
      * @throws InterruptedException From Thread class.
      */
     @Test
-    void testIsTimeElapsed() throws InterruptedException {
+    public void testIsTimeElapsed() throws InterruptedException {
         final int testTime = 500;
         final int error = 50;
         ElapsedTimeComputer c = new ElapsedTimeComputer(ElapsedTimeComputerTest.TOTAL);
