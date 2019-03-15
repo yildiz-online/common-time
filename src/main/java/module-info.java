@@ -24,5 +24,7 @@
 
 module be.yildizgames.common.time {
 
+    requires be.yildizgames.common.exception;
+
     exports be.yildizgames.common.time;
 }

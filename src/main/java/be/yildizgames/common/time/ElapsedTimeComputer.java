@@ -24,7 +24,8 @@
 
 package be.yildizgames.common.time;
 
-import java.io.Serializable;
+import be.yildizgames.common.exception.implementation.ImplementationException;
+
 import java.time.Duration;
 
 /**
@@ -32,10 +33,8 @@ import java.time.Duration;
  *
  * @author Grégory Van Den Borre
  */
-public final class ElapsedTimeComputer implements Serializable {
+public final class ElapsedTimeComputer {
 
-    /***/
-    private static final long serialVersionUID = -8851199529330811505L;
     /**
      * Total time to wait.
      */
@@ -53,10 +52,11 @@ public final class ElapsedTimeComputer implements Serializable {
      * Constructor initialize the last action time with the current time.
      *
      * @param deltaTime Counter to wait between the last check and the current time,
-     *                  in milliseconds.
+     *                  in milliseconds, must be higher than 0.
      */
     public ElapsedTimeComputer(final long deltaTime) {
         super();
+        ImplementationException.throwIfZeroOrSmaller(deltaTime);
         this.timeToWait = deltaTime;
         this.lastTime = System.currentTimeMillis();
     }
@@ -67,7 +67,12 @@ public final class ElapsedTimeComputer implements Serializable {
      * @param deltaTime Counter to wait between the last check and the current time.
      */
     public ElapsedTimeComputer(final Duration deltaTime) {
-        this(deltaTime.toMillis());
+        this(durationToMs(deltaTime));
+    }
+
+    private static long durationToMs(Duration deltaTime) {
+        ImplementationException.throwForNull(deltaTime);
+        return deltaTime.toMillis();
     }
 
     /**

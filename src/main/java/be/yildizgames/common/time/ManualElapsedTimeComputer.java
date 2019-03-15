@@ -24,6 +24,8 @@
 
 package be.yildizgames.common.time;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
+
 public class ManualElapsedTimeComputer {
 
     /**
@@ -43,6 +45,7 @@ public class ManualElapsedTimeComputer {
      */
     public ManualElapsedTimeComputer(final long deltaTime) {
         super();
+        ImplementationException.throwIfZeroOrSmaller(deltaTime);
         this.timeToWait = deltaTime;
     }
 

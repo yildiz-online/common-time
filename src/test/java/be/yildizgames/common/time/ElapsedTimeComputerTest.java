@@ -24,7 +24,12 @@
 
 package be.yildizgames.common.time;
 
+import be.yildizgames.common.exception.implementation.ImplementationException;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+
+import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -41,12 +46,77 @@ public class ElapsedTimeComputerTest {
      */
     private static final long TOTAL = 2000L;
 
-    /**
-     * Test if <li>elapsed time is correct.</li> <li>isTimeElapsed return
-     * value.</li>
-     *
-     * @throws InterruptedException From Thread class.
-     */
+    @Nested
+    public class ConstructorLong {
+
+        @Test
+        public void zero() {
+            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(0));
+        }
+
+        @Test
+        public void negative() {
+            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(-1));
+        }
+    }
+
+    @Nested
+    public class ConstructorDuration {
+
+        @Test
+        public void withNull() {
+            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(null));
+        }
+
+        @Test
+        public void negative() {
+            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(Duration.ofSeconds(-5)));
+        }
+
+        @Test
+        public void happyFlow() throws InterruptedException {
+            final int testTime = 600;
+            ElapsedTimeComputer tc = new ElapsedTimeComputer(Duration.ofSeconds(1));
+            Thread.sleep(testTime);
+            assertFalse(tc.isTimeElapsed());
+            Thread.sleep(testTime);
+            assertTrue(tc.isTimeElapsed());
+        }
+    }
+
+    @Nested
+    public class Reset {
+
+        @Test
+        public void happyFlow() throws InterruptedException {
+            final int testTime = 600;
+            ElapsedTimeComputer tc = new ElapsedTimeComputer(Duration.ofSeconds(1));
+            Thread.sleep(testTime);
+            assertFalse(tc.isTimeElapsed());
+            Thread.sleep(testTime);
+            assertTrue(tc.isTimeElapsed());
+            tc.reset();
+            assertFalse(tc.isTimeElapsed());
+        }
+    }
+
+    @Nested
+    public class GetCompletion {
+
+        @Test
+        public void happyFlow() throws InterruptedException {
+            final int testTime = 500;
+            ElapsedTimeComputer tc = new ElapsedTimeComputer(Duration.ofSeconds(1));
+            Assertions.assertTrue(tc.getCompletion() < 0.0001f);
+            Thread.sleep(testTime);
+            tc.isTimeElapsed();
+            Assertions.assertTrue(tc.getCompletion() > 0.4f && tc.getCompletion() < 0.6f);
+            Thread.sleep(testTime);
+            tc.isTimeElapsed();
+            Assertions.assertTrue(tc.getCompletion() > 0.999999f);
+        }
+    }
+
     @Test
     public void testIsTimeElapsed() throws InterruptedException {
         final int testTime = 500;
