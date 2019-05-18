@@ -133,5 +133,4 @@ public class ElapsedTimeComputerTest {
         Thread.sleep(ElapsedTimeComputerTest.TOTAL);
         assertTrue(c.isTimeElapsed());
     }
-
 }

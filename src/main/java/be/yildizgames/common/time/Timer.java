@@ -54,7 +54,7 @@ public final class Timer implements Serializable {
      * @return The time in millisecond between now and the last use of this
      * method.
      */
-    public long getActionTime() {
+    public final long getActionTime() {
         final long now = System.currentTimeMillis();
         if (this.lastTime == 0) {
             this.lastTime = now;
@@ -67,7 +67,7 @@ public final class Timer implements Serializable {
     /**
      * @return the result of {@link Timer#getActionTime()} / 1000.
      */
-    public long getActionTimeInSec() {
+    public final long getActionTimeInSec() {
         final int milliSec = 1000;
         return this.getActionTime() / milliSec;
     }
@@ -75,7 +75,7 @@ public final class Timer implements Serializable {
     /**
      * Reset the timer to 0.
      */
-    public void reset() {
+    public final void reset() {
         this.lastTime = 0;
     }
 }

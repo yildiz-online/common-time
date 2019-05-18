@@ -60,4 +60,5 @@ public class TimerTest {
     public static boolean inRange(final float value, final float lowLimit, final float highLimit) {
         return value >= lowLimit && value <= highLimit;
     }
+
 }

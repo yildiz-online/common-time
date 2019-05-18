@@ -36,6 +36,7 @@
 
   <packaging>jar</packaging>
   <inceptionYear>2017</inceptionYear>
+
   <scm>
     <connection>scm:git:https://bitbucket.org/yildiz-engine-team/common-time</connection>
     <developerConnection>scm:git:https://bitbucket.org/yildiz-engine-team/common-time</developerConnection>

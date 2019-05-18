@@ -26,6 +26,9 @@ package be.yildizgames.common.time;
 
 import be.yildizgames.common.exception.implementation.ImplementationException;
 
+/**
+ * @author Grégory Van den Borre
+ */
 public class ManualElapsedTimeComputer {
 
     /**
@@ -50,7 +53,7 @@ public class ManualElapsedTimeComputer {
     }
 
 
-    public boolean isTimeElapsed(long timeToAdd) {
+    public final boolean isTimeElapsed(long timeToAdd) {
         this.elapsedTime += timeToAdd;
         if (this.elapsedTime > this.timeToWait) {
             this.elapsedTime = 0;

@@ -80,7 +80,7 @@ public final class ElapsedTimeComputer {
      *
      * @return The ration, between 0 and 1(completed).
      */
-    public float getCompletion() {
+    public final float getCompletion() {
         return (float) this.elapsedTime / (float) this.timeToWait;
     }
 
@@ -91,7 +91,7 @@ public final class ElapsedTimeComputer {
      * @return True if more time than the counter has passed since the last
      * reinitialisation.
      */
-    public boolean isTimeElapsed() {
+    public final boolean isTimeElapsed() {
         long current = System.currentTimeMillis();
         this.elapsedTime = current - this.lastTime;
         if (this.elapsedTime > this.timeToWait) {
@@ -104,11 +104,11 @@ public final class ElapsedTimeComputer {
     /**
      * Reset the counter.
      */
-    public void reset() {
+    public final void reset() {
         this.lastTime = System.currentTimeMillis();
     }
 
-    public long getElapsedTime() {
+    public final long getElapsedTime() {
         return elapsedTime;
     }
 }

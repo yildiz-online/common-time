@@ -25,7 +25,7 @@
 package be.yildizgames.common.time;
 
 /**
- * Format a time to be displayed
+ * Format a time to be displayed.
  * @author Grégory Van den Borre
  */
 public interface TimeFormatter {

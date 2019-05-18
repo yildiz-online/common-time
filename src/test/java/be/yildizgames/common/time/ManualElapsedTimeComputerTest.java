@@ -50,4 +50,5 @@ public class ManualElapsedTimeComputerTest {
     public void negativeValue() {
         Assertions.assertThrows(ImplementationException.class, () -> new ManualElapsedTimeComputer(-1));
     }
+
 }
