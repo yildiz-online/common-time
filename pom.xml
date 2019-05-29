@@ -29,7 +29,7 @@
   <modelVersion>4.0.0</modelVersion>
   <name>Yildiz Common Time</name>
   <description>Common Time library for the yildiz project, contains utilities to manipulate time.</description>
-  <url>https://bitbucket.org/yildiz-engine-team/common-time</url>
+  <url>https://engine.yildiz-games.be</url>
 
   <artifactId>common-time</artifactId>
   <version>1.0.5-SNAPSHOT</version>
@@ -38,9 +38,9 @@
   <inceptionYear>2017</inceptionYear>
 
   <scm>
-    <connection>scm:git:https://bitbucket.org/yildiz-engine-team/common-time</connection>
-    <developerConnection>scm:git:https://bitbucket.org/yildiz-engine-team/common-time</developerConnection>
-    <url>https://bitbucket.org/yildiz-engine-team/common-time</url>
+    <connection>scm:git:https://github.com/yildiz-online/common-time</connection>
+    <developerConnection>scm:git:https://github.com/yildiz-online/common-time</developerConnection>
+    <url>https://github.com/yildiz-online/common-time</url>
   </scm>
   <parent>
     <artifactId>parent</artifactId>
