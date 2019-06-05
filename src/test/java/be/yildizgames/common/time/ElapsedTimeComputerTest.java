@@ -24,7 +24,6 @@
 
 package be.yildizgames.common.time;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -51,12 +50,12 @@ public class ElapsedTimeComputerTest {
 
         @Test
         public void zero() {
-            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(0));
+            Assertions.assertThrows(IllegalArgumentException.class, () -> new ElapsedTimeComputer(0));
         }
 
         @Test
         public void negative() {
-            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(-1));
+            Assertions.assertThrows(IllegalArgumentException.class, () -> new ElapsedTimeComputer(-1));
         }
     }
 
@@ -65,12 +64,12 @@ public class ElapsedTimeComputerTest {
 
         @Test
         public void withNull() {
-            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(null));
+            Assertions.assertThrows(NullPointerException.class, () -> new ElapsedTimeComputer(null));
         }
 
         @Test
         public void negative() {
-            Assertions.assertThrows(ImplementationException.class, () -> new ElapsedTimeComputer(Duration.ofSeconds(-5)));
+            Assertions.assertThrows(IllegalArgumentException.class, () -> new ElapsedTimeComputer(Duration.ofSeconds(-5)));
         }
 
         @Test

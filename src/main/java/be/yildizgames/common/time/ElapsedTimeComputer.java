@@ -24,8 +24,6 @@
 
 package be.yildizgames.common.time;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
-
 import java.time.Duration;
 
 /**
@@ -56,7 +54,9 @@ public final class ElapsedTimeComputer {
      */
     public ElapsedTimeComputer(final long deltaTime) {
         super();
-        ImplementationException.throwIfZeroOrSmaller(deltaTime);
+        if(deltaTime <= 0) {
+            throw new IllegalArgumentException("Must be grater than 0: value=" + deltaTime);
+        }
         this.timeToWait = deltaTime;
         this.lastTime = System.currentTimeMillis();
     }
@@ -71,7 +71,6 @@ public final class ElapsedTimeComputer {
     }
 
     private static long durationToMs(Duration deltaTime) {
-        ImplementationException.throwForNull(deltaTime);
         return deltaTime.toMillis();
     }
 

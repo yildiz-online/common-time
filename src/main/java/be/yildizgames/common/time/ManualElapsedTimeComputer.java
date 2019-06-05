@@ -24,8 +24,6 @@
 
 package be.yildizgames.common.time;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
-
 /**
  * @author Grégory Van den Borre
  */
@@ -48,7 +46,9 @@ public class ManualElapsedTimeComputer {
      */
     public ManualElapsedTimeComputer(final long deltaTime) {
         super();
-        ImplementationException.throwIfZeroOrSmaller(deltaTime);
+        if(deltaTime <= 0) {
+            throw new IllegalArgumentException("Must be grater than 0: value=" + deltaTime);
+        }
         this.timeToWait = deltaTime;
     }
 

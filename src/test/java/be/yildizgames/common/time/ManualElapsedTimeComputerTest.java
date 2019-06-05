@@ -26,7 +26,6 @@
 
 package be.yildizgames.common.time;
 
-import be.yildizgames.common.exception.implementation.ImplementationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -43,12 +42,12 @@ public class ManualElapsedTimeComputerTest {
 
     @Test
     public void zeroValue() {
-        Assertions.assertThrows(ImplementationException.class, () -> new ManualElapsedTimeComputer(0));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new ManualElapsedTimeComputer(0));
     }
 
     @Test
     public void negativeValue() {
-        Assertions.assertThrows(ImplementationException.class, () -> new ManualElapsedTimeComputer(-1));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new ManualElapsedTimeComputer(-1));
     }
 
 }
