@@ -28,7 +28,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author Grégory Van Den Borre
@@ -54,7 +53,7 @@ public class TimerTest {
     @Test
     public void resetTimerTest() {
         this.timer.reset();
-        assertTrue(this.timer.getActionTime() == 0);
+        assertEquals(0, this.timer.getActionTime());
     }
 
     public static boolean inRange(final float value, final float lowLimit, final float highLimit) {
