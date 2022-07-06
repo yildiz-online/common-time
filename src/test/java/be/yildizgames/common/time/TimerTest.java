@@ -32,31 +32,31 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * @author Grégory Van Den Borre
  */
-public class TimerTest {
+class TimerTest {
 
     private Timer timer = new Timer();
 
     @Test
-    public void getActionTimeInSecTest() throws InterruptedException {
+    void getActionTimeInSecTest() throws InterruptedException {
         assertEquals(0, this.timer.getActionTimeInSec());
         Thread.sleep(1000);
         assertEquals(1, this.timer.getActionTimeInSec());
     }
 
     @Test
-    public void getActionTimeTest() throws InterruptedException {
+    void getActionTimeTest() throws InterruptedException {
         assertEquals(0, this.timer.getActionTime());
         Thread.sleep(1000);
         Assertions.assertTrue(inRange(this.timer.getActionTime(), 950, 1050));
     }
 
     @Test
-    public void resetTimerTest() {
+    void resetTimerTest() {
         this.timer.reset();
         assertEquals(0, this.timer.getActionTime());
     }
 
-    public static boolean inRange(final float value, final float lowLimit, final float highLimit) {
+    static boolean inRange(final float value, final float lowLimit, final float highLimit) {
         return value >= lowLimit && value <= highLimit;
     }
 

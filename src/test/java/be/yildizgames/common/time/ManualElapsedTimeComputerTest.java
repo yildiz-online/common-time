@@ -29,10 +29,10 @@ package be.yildizgames.common.time;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ManualElapsedTimeComputerTest {
+class ManualElapsedTimeComputerTest {
 
     @Test
-    public void happyFlow() {
+    void happyFlow() {
         ManualElapsedTimeComputer computer = new ManualElapsedTimeComputer(2000);
         Assertions.assertFalse(computer.isTimeElapsed(500));
         Assertions.assertEquals(500, computer.getElapsedTime());
@@ -41,12 +41,12 @@ public class ManualElapsedTimeComputerTest {
     }
 
     @Test
-    public void zeroValue() {
+    void zeroValue() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new ManualElapsedTimeComputer(0));
     }
 
     @Test
-    public void negativeValue() {
+    void negativeValue() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> new ManualElapsedTimeComputer(-1));
     }
 

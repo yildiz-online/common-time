@@ -22,7 +22,7 @@
  *
  */
 
-module be.yildizgames.common.time {
+open module be.yildizgames.common.time {
 
     exports be.yildizgames.common.time;
 }
